@@ -1,4 +1,4 @@
-# oop-wrapper-p5
+# OOP-WRAPPER-p5
 In Python, OOP means Object-Oriented Programming. If you mean wrapper in OOP, a wrapper is something that surrounds another object, function, or value to provide additional functionality or make it easier to use.
  What is OOP?
 Definition: Object-Oriented Programming (OOP) is a programming approach that organizes code using classes and objects.
