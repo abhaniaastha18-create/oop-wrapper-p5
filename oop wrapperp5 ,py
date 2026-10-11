@@ -1,0 +1,88 @@
+   video link:--
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def display(self):
+        print("Name:", self.name, "Age:", self.age)
+
+
+class Employee(Person):
+    def __init__(self, emp_id, name, age, salary=0):
+        super().__init__(name, age)
+        self.__emp_id = emp_id
+        self.__salary = salary
+
+    def get_salary(self):
+        return self.__salary
+
+    def set_salary(self, salary):
+        self.__salary = salary
+
+    def display(self):
+        super().display()
+        print("ID:", self.__emp_id, "Salary:", self.__salary)
+
+
+class Manager(Employee):
+    def __init__(self, emp_id, name, age, salary, department):
+        super().__init__(emp_id, name, age, salary)
+        self.department = department
+
+    def display(self):
+        super().display()
+        print("Department:", self.department)
+
+
+class Developer(Employee):
+    def __init__(self, emp_id, name, age, salary, language):
+        super().__init__(emp_id, name, age, salary)
+        self.language = language
+
+    def display(self):
+        super().display()
+        print("Language:", self.language)
+
+
+employees = []
+
+while True:
+    print("\n1. Create Employee")
+    print("2. Create Manager")
+    print("3. Create Developer")
+    print("4. Show Details")
+    print("5. Exit")
+
+    choice = input("Enter choice: ")
+
+    if choice == "1":
+        employees.append(Employee(
+            int(input("ID: ")), input("Name: "),
+            int(input("Age: ")), float(input("Salary: "))))
+
+    elif choice == "2":
+        employees.append(Manager(
+            int(input("ID: ")), input("Name: "),
+            int(input("Age: ")), float(input("Salary: ")),
+            input("Department: ")))
+
+    elif choice == "3":
+        employees.append(Developer(
+            int(input("ID: ")), input("Name: "),
+            int(input("Age: ")), float(input("Salary: ")),
+            input("Language: ")))
+
+    elif choice == "4":
+        for e in employees:
+            e.display()
+            print("-----------")
+
+    elif choice == "5":
+        print("Thank you!")
+        break
+
+    else:
+        print("Invalid choice!")
+
+print("Manager subclass:", issubclass(Manager, Employee))
